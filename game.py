@@ -1,15 +1,26 @@
 import random
 import tkinter as tk
+from PIL import Image,ImageTk
+
+
 
 window=tk.Tk()
-window.geometry("400x300")
+window.geometry("300x500")
 window.title("Scissor Paper Rock @Diwas ")
+
+image=Image.open('aa.jpg')
+image.thumbnail((300,300),Image.ANTIALIAS)
+photo=ImageTk.PhotoImage(image)
+label_image=tk.Label(image=photo)
+label_image.grid(column=15,row=0)
 
 #global variables
 USER_SCORE=0
 COMP_SCORE=0
 USER_CHOICE=""
 COMP_CHOICE=""
+
+
 
 def choice_to_number(choice):
     rps={'scissor':0,'paper':1,'rock':2}
@@ -41,7 +52,7 @@ def result(human_choice,comp_choice):
 
     #Text
     text_area=tk.Text(master=window,height=12,width=30)
-    text_area.grid(column=0,row=4)
+    text_area.grid(column=15,row=4)
     answer="Your Choice: {uc} \nComputer's Choice : {cc} \n Your Score : {u} \n Computer Score : {c}  \n\n made by diwas pandey ".format(uc=USER_CHOICE,cc=COMP_CHOICE,u=USER_SCORE,c=COMP_SCORE, font=('arial',24,'bold'))
     text_area.insert(tk.END,answer)
 
@@ -73,11 +84,12 @@ def scissor():
     
 #buttons
 button1=tk.Button(text="       Scissor         ",bg="red",command=scissor, height=1,width=8,font=('arial',15,'bold'))
-button1.grid(column=0,row=1)
+button1.grid(column=15,row=1)
 button2=tk.Button(text="        Paper          ",bg="pink",command=paper, height=1,width=8,font=('arial',15,'bold'))
-button2.grid(column=0,row=2)
+button2.grid(column=15,row=2)
 button3=tk.Button(text="         Rock          ",bg="yellow",command=rock, height=1,width=8,font=('arial',15,'bold'))
-button3.grid(column=0,row=3)  
+button3.grid(column=15,row=3)  
+
 
 
 window.mainloop()
