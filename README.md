@@ -1,3 +1,2 @@
 # Scissor-paper-rock
-simple python game made with tkinter 
-just for fun 
+Get full code & Tutorials on aihubprojects.com/scissor-paper-rock-game-python-projects/
